@@ -102,6 +102,6 @@ gulp.task('copy-html', function() {
 // ----- Images ----- //
 
 gulp.task('copy-images', function() {
-	gulp.src('img/*')
-		.pipe(gulp.dest('dist/img'));
+	gulp.src('images/*')
+		.pipe(gulp.dest('dist/images'));
 });
