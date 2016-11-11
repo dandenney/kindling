@@ -10,7 +10,15 @@
 
     <section>
 
-      <h2>Create an Account</h2>
+      <h2>Authed Accounts</h2>
+
+      <p id='feedback-authedAccount'></p>
+
+    </section>
+
+    <section>
+
+      <h2>Create Account</h2>
 
       <form id='form-createAccount'>
 
@@ -34,9 +42,25 @@
 
     <section>
 
-      <h2>Authed Accounts</h2>
+      <h2>Auth Account</h2>
 
-      <p id='feedback-authedAccount'></p>
+      <form id='form-authAccount'>
+
+        <fieldset>
+          <label>Email Address</label>
+          <input class='form-input' id='email-authAccount' type='email' />
+        </fieldset>
+
+        <fieldset>
+          <label>Password</label>
+          <input id='password-authAccount' type='password' />
+        </fieldset>
+
+        <button class='btn-submit' id='submit-authAccount'>Auth Account</button>
+
+        <p class='feedback' id='feedback-authAccount'></p>
+
+      </form>
 
     </section>
 

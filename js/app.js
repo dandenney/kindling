@@ -28,21 +28,22 @@
 
 function firebaseCreateAccount() {
 
-  const elEmailCreateAccount = document.querySelector('.form-input');
-  const elPasswordCreateAccount = document.querySelector('#password-createAccount');
-  const elSubmitCreateAccount = document.querySelector('#submit-createAccount');
-  const elFeedbackCreateAccount = document.querySelector('#feedback-createAccount');
+  const elEmail = document.querySelector('#email-createAccount');
+  const elPassword = document.querySelector('#password-createAccount');
+  const elSubmit = document.querySelector('#submit-createAccount');
+  const elFeedback = document.querySelector('#feedback-createAccount');
   var emailCreateAccount;
+  var passwordCreateAccount;
 
-  elEmailCreateAccount.addEventListener('input', function() {
+  elEmail.addEventListener('input', function() {
     emailCreateAccount = this.value;
   });
 
-  elPasswordCreateAccount.addEventListener('input', function() {
+  elPassword.addEventListener('input', function() {
     passwordCreateAccount = this.value;
   });
 
-  elSubmitCreateAccount.addEventListener('click', function(e) {
+  elSubmit.addEventListener('click', function(e) {
 
     e.preventDefault();
 
@@ -54,7 +55,7 @@ function firebaseCreateAccount() {
       var errorCode = error.code;
       var errorMessage = error.message;
 
-      elFeedbackCreateAccount.innerHTML = '<strong>' + error.code + '</strong>' + '<br />' + error.message;
+      elFeedback.innerHTML = '<strong>' + error.code + '</strong>' + '<br />' + error.message;
 
     });
 
@@ -78,6 +79,43 @@ function firebaseAuthStateChanged() {
 
 }
 
+function firebaseAuth() {
+
+  const elEmail = document.querySelector('#email-authAccount');
+  const elPassword = document.querySelector('#password-authAccount');
+  const elSubmit = document.querySelector('#submit-authAccount');
+  const elFeedback = document.querySelector('#feedback-authAccount');
+  var emailAuthAccount;
+  var passwordAuthAccount;
+
+  elEmail.addEventListener('input', function() {
+    emailAuthAccount = this.value;
+  });
+
+  elPassword.addEventListener('input', function() {
+    passwordAuthAccount = this.value;
+  });
+
+  elSubmit.addEventListener('click', function(e) {
+
+    e.preventDefault();
+
+    var email = emailAuthAccount;
+    var password = passwordAuthAccount;
+
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      elFeedback.innerHTML = '<strong>' + error.code + '</strong>' + '<br />' + error.message;
+
+    });
+
+  });
+
+}
+
 function firebaseDatabase() {
 
   var database = firebase.database();
@@ -85,5 +123,6 @@ function firebaseDatabase() {
 }
 
 firebaseCreateAccount();
+firebaseAuth();
 firebaseAuthStateChanged();
 firebaseDatabase();
