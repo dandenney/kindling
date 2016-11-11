@@ -116,6 +116,25 @@ function firebaseAuth() {
 
 }
 
+function firebaseSignOut() {
+
+  const elAction = document.querySelector('#auth-signOut');
+
+  elAction.addEventListener('click', function() {
+
+    console.clear();
+    console.log("🍻");
+
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }, function(error) {
+      // An error happened.
+    });
+
+  });
+
+}
+
 function firebaseDatabase() {
 
   var database = firebase.database();
@@ -125,4 +144,5 @@ function firebaseDatabase() {
 firebaseCreateAccount();
 firebaseAuth();
 firebaseAuthStateChanged();
+firebaseSignOut();
 firebaseDatabase();
