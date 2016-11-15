@@ -4,88 +4,101 @@
     <meta charset='utf-8'>
     <meta http-equiv='x-ua-compatible' content='ie=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="styles/app.css">
+    <link rel='stylesheet' href='styles/app.css'>
   </head>
   <body>
 
-    <p><a href='https://dribbble.com/shots/2921897-Freebies'>Design Inspiration</a></p>
-    <img src='/images/example.png' />
-    <img src='/images/example-2.png' />
-    <img src='/images/example-3.jpeg' />
+    <header>
 
-    <section>
+      <nav>
+        <a href='/'>
+          <img src='/images/kindling.png' width='60' />
+        </a>
+        <div class=''>
+          <a href='/#auth'>Sign In / Up</a>
+          <button class='btn-signOut' id='auth-signOut'>Sign Out</button>
+        </div>
+      </nav>
 
-      <h2>Authed Accounts</h2>
+    </header>
 
-      <p id='feedback-authedAccount'></p>
+    <main class='container'>
 
-    </section>
+      <div class='tabs'>
 
-    <section>
+        <input type='radio' name='tabs' id='tabone' checked='checked'>
+        <label for='tabone'>Sign In</label>
+        <div class='tab'>
 
-      <h2>Create Account</h2>
+          <form id='form-authAccount'>
 
-      <form id='form-createAccount'>
+            <fieldset>
+              <label>Email Address</label>
+              <input class='form-input' id='email-authAccount' type='email' />
+            </fieldset>
 
-        <fieldset>
-          <label>Email Address</label>
-          <input class='form-input' id='email-createAccount' type='email' />
-        </fieldset>
+            <fieldset>
+              <label>Password</label>
+              <input id='password-authAccount' type='password' />
+            </fieldset>
 
-        <fieldset>
-          <label>Password</label>
-          <input id='password-createAccount' type='password' />
-        </fieldset>
+            <button class='btn-submit' id='submit-authAccount'>Sign In</button>
 
-        <button class='btn-submit' id='submit-createAccount'>Create Account</button>
+            <p class='feedback' id='feedback-authAccount'></p>
 
-        <p class='feedback' id='feedback-createAccount'></p>
+          </form>
 
-      </form>
+        </div>
 
-    </section>
+        <input type='radio' name='tabs' id='tabtwo'>
+        <label for='tabtwo'>Create Account</label>
+        <div class='tab'>
 
-    <section>
+          <form id='form-createAccount'>
 
-      <h2>Auth Account</h2>
+            <fieldset>
+              <label>Email Address</label>
+              <input class='form-input' id='email-createAccount' type='email' />
+            </fieldset>
 
-      <form id='form-authAccount'>
+            <fieldset>
+              <label>Password</label>
+              <input id='password-createAccount' type='password' />
+            </fieldset>
 
-        <fieldset>
-          <label>Email Address</label>
-          <input class='form-input' id='email-authAccount' type='email' />
-        </fieldset>
+            <button class='btn-submit' id='submit-createAccount'>Create Account</button>
 
-        <fieldset>
-          <label>Password</label>
-          <input id='password-authAccount' type='password' />
-        </fieldset>
+            <p class='feedback' id='feedback-createAccount'></p>
 
-        <button class='btn-submit' id='submit-authAccount'>Auth Account</button>
+          </form>
 
-        <p class='feedback' id='feedback-authAccount'></p>
+        </div>
 
-      </form>
+      </div>
 
-    </section>
+    </main>
 
-    <section>
+    <footer>
 
-      <h2>Sign Out</h2>
+      <section class='auth-feedback'>
 
-      <button class='btn-signOut' id='auth-signOut'>Sign Out</button>
+        <h2>Authed Accounts</h2>
 
-    </section>
+        <p id='feedback-authedAccount'></p>
 
-    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+      </section>
+
+    </footer>
+
+    <script src='https://www.gstatic.com/firebasejs/3.5.0/firebase.js'></script>
     <script>
       // Initialize Firebase
       var config = {
-        apiKey: "AIzaSyBg9mwo8rm3Z3x20SfYdcvufOsOrj9AuqQ",
-        authDomain: "kindling-eb574.firebaseapp.com",
-        databaseURL: "https://kindling-eb574.firebaseio.com",
-        storageBucket: "kindling-eb574.appspot.com",
-        messagingSenderId: "560007680694"
+        apiKey: 'AIzaSyBg9mwo8rm3Z3x20SfYdcvufOsOrj9AuqQ',
+        authDomain: 'kindling-eb574.firebaseapp.com',
+        databaseURL: 'https://kindling-eb574.firebaseio.com',
+        storageBucket: 'kindling-eb574.appspot.com',
+        messagingSenderId: '560007680694'
       };
       firebase.initializeApp(config);
     </script>
