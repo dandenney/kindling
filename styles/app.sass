@@ -9,6 +9,24 @@
 /*   Colors
 /* ------------------------------------- */
 
+$c-action: #ad5818
+$c-bg: #f6f7f8
+$c-detail: #f5f8f9
+$c-text: #555555
+
+/* ------------------------------------- */
+/*   Sizes
+/* ------------------------------------- */
+
+$space: 20px
+$space-xs: $space * 0.25
+$space-s: $space * 0.5
+$space-l: $space * 1.5
+$space-xl: $space * 2
+
+$container-s: 500px
+$container: 700px
+
 /* ------------------------------------- */
 /*   Global
 /* ------------------------------------- */
@@ -18,29 +36,59 @@
 
 html,
 body
-  min-height: 100%
+  height: 100%
+  margin: 0
+  padding: 0
 
 body
-  background: #f5f5f5
-  color: #555555
+  background: $c-bg
+  color: $c-text
   font-family: Helvetica
 
-section
-  margin: 3em auto
-  max-width: 400px
+main
+  align-items: center
+  display: flex
+  justify-content: center
+  min-height: 600px
 
 h2
   text-align: center
 
+a
+  color: $c-action
+  transition: color 0.25s linear
+
+  &:hover
+    color: mix(#000, $c-action, 15%)
+
+/* ------------------------------------- */
+/*   Container
+/* ------------------------------------- */
+
+header
+  background: #fff
+  border-bottom: 1px solid mix(#000, $c-bg, 5%)
+  padding: $space-s
+
+nav
+  align-items: center
+  display: flex
+  justify-content: space-between
+  margin: 0 auto
+  max-width: $container
+
+footer
+  background: #fff
+  border-top: 1px solid mix(#000, $c-bg, 5%)
+  padding: $space-s
+
+.container
+  margin: 0 auto
+  max-width: $container
+
 /* ------------------------------------- */
 /*   Forms
 /* ------------------------------------- */
-
-form
-  background: #fff
-  border-radius: 0.5em
-  box-shadow: 0 1px 2px 0 rgba(#000, 0.2)
-  padding: 1em
 
 fieldset
   border: none
@@ -56,17 +104,21 @@ label
   margin-bottom: 0.25em
 
 input
-  background: #f5f5f5
-  border: 0
+  background: $c-detail
+  border: 1px solid mix(#000, #f5f8f9, 5%)
   border-radius: 0.5em
-  box-shadow: inset 0 2px 2px rgba(#000, 0.2)
   font: inherit
   padding: 0.75em
+  transition: border 0.25s linear
   width: 100%
+
+  &:focus
+    border: 1px solid mix(#000, #f5f8f9, 15%)
+    outline: none
 
 .btn-submit,
 .btn-signOut
-  background: #3fb8af
+  background: $c-action
   border: 0
   border-radius: 0.25em
   box-shadow: 0
@@ -81,3 +133,64 @@ input
 
 .feedback:empty
   margin: 0
+
+/* ------------------------------------- */
+/*   Tabs
+/*   http://codepen.io/mikestreety/pen/yVNNNm
+/* ------------------------------------- */
+
+.tabs
+  background: #fff
+  border-radius: 0.5em
+  box-shadow: 0 1px 2px 0 rgba(#000, 0.2)
+  display: flex
+  flex-wrap: wrap
+  margin: 0 auto
+  max-width: $container-s
+  overflow: hidden
+
+.tabs > label
+  background: $c-bg
+  color: $c-action
+  cursor: pointer
+  display: block
+  flex-basis: 50%
+  font-weight: bold
+  margin: 0
+  order: 1
+  padding: ($space * 0.75) $space-s
+  text-align: center
+  transition: background ease 0.2s
+
+  &:last-of-type
+    border-left: 1px solid rgba(#000, 0.025)
+
+.tabs .tab
+  display: none
+  flex-grow: 1
+  padding: $space
+  order: 99
+  width: 100%
+
+.tabs > input[type='radio']
+  opacity: 0
+  position: absolute
+
+.tabs > input[type='radio']:checked + label
+  background: #fff
+  color: $c-text
+
+.tabs > input[type='radio']:checked + label + .tab
+  display: block
+
+.tabs h2
+  margin-top: 0
+
+@media (max-width: 45em)
+  .tabs .tab,
+  .tabs label
+    order: initial
+
+  .tabs label
+    margin-right: 0
+    width: 100%
